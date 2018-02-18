@@ -1,0 +1,85 @@
+#N canvas 65 54 1301 714 10;
+#X obj 460 532 freeverb~;
+#X msg 576 449 roomsize \$1;
+#X msg 662 449 damping \$1;
+#X msg 747 448 wet \$1;
+#X msg 810 448 dry \$1;
+#X obj 461 451 inlet~;
+#X obj 459 592 outlet~;
+#X obj 512 591 outlet~;
+#X obj 134 142 vsl 30 100 0 127 0 1 s_room r_room roomsize 0 -9 0 10
+-262144 -1 -1 6900 1;
+#X floatatom 576 416 5 0 0 0 - - -;
+#X obj 199 142 vsl 30 100 0 128 0 1 s_damping r_damping damping 0 -9
+0 10 -262144 -1 -1 3480 1;
+#X floatatom 662 414 5 0 0 0 - - -;
+#X obj 265 143 vsl 30 100 0 128 0 1 s_wet r_wet wet 0 -9 0 10 -262144
+-1 -1 4409 1;
+#X floatatom 747 414 5 0 0 0 - - -;
+#X obj 330 144 vsl 30 100 0 128 0 1 s_dry r_dry dry 0 -9 0 10 -262144
+-1 -1 8895 1;
+#X floatatom 810 413 5 0 0 0 - - -;
+#X msg 337 449 bypass \$1;
+#X obj 661 157 ctlin 91 1;
+#X obj 748 157 ctlin 93 1;
+#X obj 837 157 ctlin 74 1;
+#X obj 918 157 ctlin 71 1;
+#X obj 576 379 / 127;
+#X obj 662 377 / 63.4;
+#X obj 747 377 / 127;
+#X obj 810 376 / 127;
+#X obj 337 416 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+64;
+#X obj 337 345 ctlin 10 1;
+#X obj 337 380 loadbang;
+#X obj 748 189 s r_damping;
+#X obj 837 189 s r_wet;
+#X obj 918 189 s r_dry;
+#X obj 662 341 r s_damping;
+#X obj 747 341 r s_wet;
+#X obj 810 341 r s_dry;
+#X obj 661 189 s r_room;
+#X obj 576 341 r s_room;
+#X text 99 48 We introduce a reverb in order to achieve a more realistic
+sound.;
+#X text 659 127 We read the parameters from the rotary knobs.;
+#X text 160 320 This button allows to turn the reverb on and off.;
+#X text 703 527 The reverb engine is a block that comes with Pure Data.
+The argument that we pass to it are: the room dimension \, the damping
+factor \, the wet and the dry amounts.;
+#X obj 460 562 /~ 2;
+#X obj 511 562 /~ 2;
+#X text 959 659 Project: Pipe Organ Emulation with Pure Data;
+#X text 966 675 Author: Nicola Simoni (nicola.simoni.89@gmail.com)
+;
+#X connect 0 0 40 0;
+#X connect 0 1 41 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 5 0 0 1;
+#X connect 9 0 1 0;
+#X connect 11 0 2 0;
+#X connect 13 0 3 0;
+#X connect 15 0 4 0;
+#X connect 16 0 0 0;
+#X connect 17 0 34 0;
+#X connect 18 0 28 0;
+#X connect 19 0 29 0;
+#X connect 20 0 30 0;
+#X connect 21 0 9 0;
+#X connect 22 0 11 0;
+#X connect 23 0 13 0;
+#X connect 24 0 15 0;
+#X connect 25 0 16 0;
+#X connect 26 0 27 0;
+#X connect 27 0 25 0;
+#X connect 31 0 22 0;
+#X connect 32 0 23 0;
+#X connect 33 0 24 0;
+#X connect 35 0 21 0;
+#X connect 40 0 6 0;
+#X connect 41 0 7 0;
+#X coords 0 -1 1 1 300 160 1 100 100;

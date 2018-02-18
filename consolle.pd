@@ -1,0 +1,118 @@
+#N canvas 65 54 1301 714 10;
+#X obj 117 155 vsl 20 128 -40 60 0 0 s1 r1 16' 0 -9 0 10 -262144 -1
+-1 0 1;
+#X obj 160 155 vsl 20 128 -40 60 0 0 s2 r2 16_1/3' 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 204 156 vsl 20 128 -40 60 0 1 s3 r3 8' 0 -9 0 10 -262144 -1
+-1 0 1;
+#X obj 248 156 vsl 20 128 -40 60 0 1 s4 r4 4' 0 -9 0 10 -262144 -1
+-1 0 1;
+#X obj 291 155 vsl 20 128 -40 60 0 0 s5 r5 2_2/3' 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 334 156 vsl 20 128 -40 60 0 0 s6 r6 2' 0 -9 0 10 -262144 -1
+-1 0 1;
+#X obj 376 156 vsl 20 128 -40 60 0 0 s7 r7 1_3/5' 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 420 157 vsl 20 128 -40 60 0 0 s8 r8 1_1/3' 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 465 157 vsl 20 128 -40 60 0 0 s9 r9 1' 0 -9 0 10 -262144 -1
+-1 0 1;
+#X floatatom 728 215 2 0 0 0 - - -;
+#X floatatom 773 214 2 0 0 0 - - -;
+#X obj 728 247 poly 7 1;
+#X obj 728 282 pack 0 0 0;
+#X obj 728 332 route 1 2 3 4 5 6 7;
+#X obj 457 384 unpack 0 0;
+#X floatatom 457 416 5 0 0 0 - - -;
+#X floatatom 514 415 5 0 0 0 - - -;
+#X obj 563 385 unpack 0 0;
+#X floatatom 563 417 5 0 0 0 - - -;
+#X floatatom 620 416 5 0 0 0 - - -;
+#X obj 669 384 unpack 0 0;
+#X floatatom 669 416 5 0 0 0 - - -;
+#X floatatom 726 415 5 0 0 0 - - -;
+#X obj 775 383 unpack 0 0;
+#X floatatom 775 415 5 0 0 0 - - -;
+#X floatatom 832 414 5 0 0 0 - - -;
+#X obj 883 382 unpack 0 0;
+#X floatatom 883 414 5 0 0 0 - - -;
+#X floatatom 940 413 5 0 0 0 - - -;
+#X obj 994 383 unpack 0 0;
+#X floatatom 994 415 5 0 0 0 - - -;
+#X floatatom 1051 414 5 0 0 0 - - -;
+#X obj 1102 382 unpack 0 0;
+#X floatatom 1102 414 5 0 0 0 - - -;
+#X floatatom 1159 413 5 0 0 0 - - -;
+#X obj 759 511 /~ 7;
+#X obj 901 440 pipes;
+#X obj 728 179 inlet;
+#X obj 773 179 inlet;
+#X obj 758 551 outlet~;
+#X text 726 157 Note;
+#X text 771 157 Velocity;
+#X text 909 254 Here we create the 7 voices poliphony. Each time we
+play more than one note simultaneously \, the new note and velocity
+are sent to a new complete rank of pipes.;
+#X obj 580 443 pipes;
+#X obj 1120 440 pipes;
+#X obj 1011 441 pipes;
+#X obj 792 441 pipes;
+#X obj 688 442 pipes;
+#X obj 475 443 pipes;
+#X text 912 532 To avoid clipping we have to divide the signal by 7
+;
+#X text 945 675 Author: Nicola Simoni (nicola.simoni.89@gmail.com)
+;
+#X text 940 659 Project: Pipe Organ Emulation with Pure Data;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 12 0;
+#X connect 11 1 12 1;
+#X connect 11 2 12 2;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 1 17 0;
+#X connect 13 2 20 0;
+#X connect 13 3 23 0;
+#X connect 13 4 26 0;
+#X connect 13 5 29 0;
+#X connect 13 6 32 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 15 0 48 0;
+#X connect 16 0 48 1;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 18 0 43 0;
+#X connect 19 0 43 1;
+#X connect 20 0 21 0;
+#X connect 20 1 22 0;
+#X connect 21 0 47 0;
+#X connect 22 0 47 1;
+#X connect 23 0 24 0;
+#X connect 23 1 25 0;
+#X connect 24 0 46 0;
+#X connect 25 0 46 1;
+#X connect 26 0 27 0;
+#X connect 26 1 28 0;
+#X connect 27 0 36 0;
+#X connect 28 0 36 1;
+#X connect 29 0 30 0;
+#X connect 29 1 31 0;
+#X connect 30 0 45 0;
+#X connect 31 0 45 1;
+#X connect 32 0 33 0;
+#X connect 32 1 34 0;
+#X connect 33 0 44 0;
+#X connect 34 0 44 1;
+#X connect 35 0 39 0;
+#X connect 36 0 35 0;
+#X connect 37 0 9 0;
+#X connect 38 0 10 0;
+#X connect 43 0 35 0;
+#X connect 44 0 35 0;
+#X connect 45 0 35 0;
+#X connect 46 0 35 0;
+#X connect 47 0 35 0;
+#X connect 48 0 35 0;
+#X coords 0 -1 1 1 400 200 1 100 100;

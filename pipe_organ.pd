@@ -1,0 +1,51 @@
+#N canvas 65 54 1301 714 10;
+#X obj 86 12 notein 1;
+#X obj 87 326 reverb;
+#X obj 552 36 pddp/dsp;
+#X obj 87 256 tremolo;
+#X obj 548 319 hradio 15 1 0 6 presets tasti presets 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 779 37 presets;
+#X obj 547 146 tgl 15 1 s_principale16 r_principale16 principale_16'
+0 -10 0 10 -262144 -1 -1 0 1;
+#X obj 650 145 tgl 15 1 s_corno r_corno corno_inglese 0 -10 0 10 -262144
+-1 -1 0 1;
+#X obj 751 145 tgl 15 1 s_fagotto16 r_fagotto16 fagotto_16' 0 -10 0
+10 -262144 -1 -1 0 1;
+#X obj 851 143 tgl 15 1 s_principale8 r_principale8 principale_8' 0
+-10 0 10 -262144 -1 -1 0 1;
+#X obj 954 142 tgl 15 1 s_ottava4 r_ottava4 ottava_4' 0 -10 0 10 -262144
+-1 -1 0 1;
+#X obj 1047 142 tgl 15 1 s_tromba8 r_tromba8 tromba_8' 0 -10 0 10 -262144
+-1 -1 0 1;
+#X obj 1140 143 tgl 15 1 s_violabassi4 r_violabassi4 viola_bassi_4'
+0 -10 0 10 -262144 -1 -1 0 1;
+#X obj 548 189 tgl 15 1 s_flauto4 r_flauto4 flauto_4' 0 -10 0 10 -262144
+-1 -1 0 1;
+#X obj 650 190 tgl 15 1 s_ottavino r_ottavino ottavino 0 -10 0 10 -262144
+-1 -1 0 1;
+#X obj 752 189 tgl 15 1 s_duodecima r_duodecima duodecima 0 -10 0 10
+-262144 -1 -1 0 1;
+#X obj 852 188 tgl 15 1 s_cornetto r_cornetto cornetto 0 -10 0 10 -262144
+-1 -1 0 1;
+#X obj 955 188 tgl 15 1 s_voce r_voce voce 0 -10 0 10 -262144 -1 -1
+0 1;
+#X obj 1048 187 tgl 15 1 s_tromboni r_tromboni tromboni 0 -10 0 10
+-262144 -1 -1 0 1;
+#X obj 672 37 registri;
+#X obj 85 690 dac~;
+#X obj 86 498 out;
+#X obj 548 256 hradio 15 1 0 6 presetsreg tastireg presets_registers
+0 -8 0 10 -262144 -1 -1 0;
+#X obj 86 46 consolle;
+#X text 952 665 Project: Pipe Organ Emulation with Pure Data;
+#X text 958 679 Author: Nicola Simoni (nicola.simoni.89@gmail.com)
+;
+#X connect 0 0 23 0;
+#X connect 0 1 23 1;
+#X connect 1 0 21 0;
+#X connect 1 1 21 1;
+#X connect 3 0 1 0;
+#X connect 21 0 20 0;
+#X connect 21 1 20 1;
+#X connect 23 0 3 0;

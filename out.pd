@@ -1,0 +1,31 @@
+#N canvas 164 164 1027 378 10;
+#X obj 127 137 vsl 30 128 1.27 127 0 1 s_vol r_vol volume 0 -9 0 10
+-262144 -1 -1 12700 1;
+#X obj 334 241 *~;
+#X obj 390 240 *~;
+#X floatatom 468 182 5 0 0 0 - - -;
+#X obj 468 145 / 127;
+#X obj 468 108 r s_vol;
+#X obj 703 154 ctlin 7 1;
+#X obj 703 189 s r_vol;
+#X obj 333 291 outlet~;
+#X obj 390 291 outlet~;
+#X obj 334 171 inlet~;
+#X obj 389 170 inlet~;
+#X text 699 127 Volume value;
+#X text 566 257 The two inlets are the left and right channels. These
+are multiplied by a value that varies from 0 to 1 \, controlled by
+the volume fader.;
+#X text 699 341 Author: Nicola Simoni (nicola.simoni.89@gmail.com)
+;
+#X text 693 326 Project: Pipe Organ Emulation with Pure Data;
+#X connect 1 0 8 0;
+#X connect 2 0 9 0;
+#X connect 3 0 1 1;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 10 0 1 0;
+#X connect 11 0 2 0;
+#X coords 0 -1 1 1 85 180 1 100 100;

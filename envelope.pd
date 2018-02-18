@@ -1,0 +1,65 @@
+#N canvas 65 92 1301 686 10;
+#X floatatom 364 137 5 0 0 0 - - -;
+#X floatatom 414 137 5 0 0 0 - - -;
+#X floatatom 462 137 5 0 0 0 - - -;
+#X floatatom 574 137 5 0 0 0 - - -;
+#X obj 364 105 r sa;
+#X obj 462 105 r ss;
+#X obj 414 105 r sd;
+#X obj 574 106 r sr;
+#X obj 368 205 pack f f f f;
+#X msg 368 246 1 \$2 \, \$4 \$3 \$2;
+#X obj 529 222 pack f f;
+#X msg 529 258 0 \$2;
+#X obj 368 314 vline~;
+#X obj 529 105 inlet;
+#X obj 529 137 sel 0;
+#X obj 367 357 outlet~;
+#X obj 125 158 vsl 15 128 0 300 0 1 sa empty A 0 -9 0 10 -262144 -1
+-1 500 1;
+#X obj 153 157 vsl 15 128 0 500 0 1 sd empty D 0 -9 0 10 -262144 -1
+-1 0 1;
+#X obj 180 157 vsl 15 128 0 1 0 1 ss empty S 0 -9 0 10 -262144 -1 -1
+12700 1;
+#X obj 209 157 vsl 15 128 0 1000 0 1 sr empty R 0 -9 0 10 -262144 -1
+-1 700 1;
+#X obj 289 105 inlet;
+#X text 292 83 Note;
+#X text 531 83 Velocity;
+#X text 698 235 The release section receives the note velocity (to
+check if the key is still pressed or not). When the velocity is zero
+the block "sel 0" sends a bang signal to the message that says: go
+to 0 within a release time \$2.;
+#X text 699 333 The block "line" draws a line according to the incoming
+messages.;
+#X text 96 43 Here we realize the ADSR envelope.;
+#X text 697 113 The attack-decay section receives the note (to check
+if a key has been pressed) and draws a line with the following rule:
+go to one with an attack time \$2 \, then go to sustain value \$4 with
+a decay time \$3 \, after a delay of \$2 (attack time). The block "stripnote"
+removes note-off messages: in fact we have to trigger the attack only
+when we play a note.;
+#X obj 289 138 stripnote;
+#X text 938 612 Project: Pipe Organ Emulation with Pure Data;
+#X text 944 628 Author: Nicola Simoni (nicola.simoni.89@gmail.com)
+;
+#X text 941 629;
+#X connect 0 0 8 1;
+#X connect 1 0 8 2;
+#X connect 2 0 8 3;
+#X connect 3 0 10 1;
+#X connect 4 0 0 0;
+#X connect 5 0 2 0;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 13 0 27 1;
+#X connect 14 0 10 0;
+#X connect 20 0 27 0;
+#X connect 27 0 8 0;
+#X coords 0 -1 1 1 150 200 1 100 100;
